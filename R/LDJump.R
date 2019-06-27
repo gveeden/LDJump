@@ -3,7 +3,7 @@ LDJump = function(seqName = "", alpha = 0.05, quant = 0.35, segLength = 1000, pa
   if(seqName == "") {stop("Please provide the path of the sequence files in fasta/vcf format.")}
   if(format == "vcf") {
     vcfR_to_fasta(seqName, refName, ext.ind = T, cons = F, ext.haps = T, start = start)
-    seqName = paste0(substr(seqName, 1, nchar(seqName)-4), ".fa")
+    seqName = paste0(seqName, ".fa", sep="")
     format = "fasta"
   }
   if(format == "fasta") {
