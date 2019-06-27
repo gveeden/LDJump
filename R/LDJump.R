@@ -1,8 +1,8 @@
-LDJump = function(seqName = "", alpha = 0.05, quant = 0.35, segLength = 1000, pathLDhat = "", pathPhi = "", format = "fasta", refName = NULL, start = NULL, constant = F, rescale = F, status = T, polyThres = 0, cores = 1, accept = F, demography = F, regMod = "", out = "") {
+LDJump = function(seqName = "", alpha = 0.05, quant = 0.35, segLength = 1000, pathLDhat = "", pathPhi = "", format = "fasta", refName = NULL, start = NULL, constant = F, rescale = F, status = T, polyThres = 0, cores = 1, accept = F, demography = F, regMod = "", out = "", SNP_ID_default = NA) {
   if(pathPhi == "") {stop("Please provide the path of PhiPack. Beware that this package requires PathPhi to be installed for usage.")}
   if(seqName == "") {stop("Please provide the path of the sequence files in fasta/vcf format.")}
   if(format == "vcf") {
-    vcfR_to_fasta(seqName, refName, ext.ind = T, cons = F, ext.haps = T, start = start, cores = 16)
+    vcfR_to_fasta(seqName, refName, ext.ind = T, cons = F, ext.haps = T, start = start, cores = cores, SNP_ID_default = SNP_ID_default)
     seqName = paste0(seqName, ".fa", sep="")
     format = "fasta"
   }
