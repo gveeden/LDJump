@@ -2,7 +2,7 @@ LDJump = function(seqName = "", alpha = 0.05, quant = 0.35, segLength = 1000, pa
   if(pathPhi == "") {stop("Please provide the path of PhiPack. Beware that this package requires PathPhi to be installed for usage.")}
   if(seqName == "") {stop("Please provide the path of the sequence files in fasta/vcf format.")}
   if(format == "vcf") {
-    vcfR_to_fasta(seqName, refName, ext.ind = T, cons = F, ext.haps = T, start = start)
+    vcfR_to_fasta(seqName, refName, ext.ind = T, cons = F, ext.haps = T, start = start, cores = 16)
     seqName = paste0(seqName, ".fa", sep="")
     format = "fasta"
   }
